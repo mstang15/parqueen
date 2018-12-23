@@ -4,7 +4,6 @@ require 'rails_helper'
     it 'I can log in with google using oauth2' do
       def stub_omniauth
         OmniAuth.config.test_mode = true
-        #may need to do [:google] below
         OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({'uid'=> '1234','credentials' => {'token' => '4321'},'info' =>{'email'=> "example@gmail.com", 'name' => "John Smith"}})
       end
 

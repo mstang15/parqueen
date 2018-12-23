@@ -1,4 +1,4 @@
-class Parking < ApplicationRecord
+class CurbInformation
   attr_reader            :street_name,
                          :start_cross_street,
                          :end_cross_street,

@@ -1,5 +1,5 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-RSpec.describe Parking, type: :model do
+# RSpec.describe Parking, type: :model do
 
-end
+# end

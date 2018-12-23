@@ -28,12 +28,5 @@ describe 'when a user creates a parking show page by button press' do
     expect(page).to have_content("Union Street")
     expect(page).to have_content("E")
   end
-
 end
-# These are coordinates where you can't park
-# params = {:location => "47.539245692589986,-122.29951946605416"}
 
-# I see a detailed description of where I parked
-# (Example: You parked on the SE side of Maple Avenue between 14th street and 15th street".
-# And I see the time I parked
-# and the time I should move my car

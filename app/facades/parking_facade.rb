@@ -28,7 +28,7 @@ private
 
   def parking
     data = service.get_parking
-    @_parking = Parking.new(data)
+    @_parking = CurbInformation.new(data)
     # would this be where we write to the database?
   end
 
