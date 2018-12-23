@@ -16,5 +16,4 @@ class CurbInformation
       @legal          = false
     end
   end
-
 end

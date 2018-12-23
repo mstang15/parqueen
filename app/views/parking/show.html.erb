@@ -1,17 +1,17 @@
 <%= link_to "Log Out", logout_path %>
 
-<% if @facade.parking_legal == true %>
+<% if @facade.parking.legal == true %>
 <h1>YOU PARKED YOUR CHARIOT LEGALLY!</h1>
 <br />
-You are parked on the <%= @facade.parking_side %> side of
-<%= @facade.parking_street %> between
-<%= @facade.parking_start %> and
-<%= @facade.parking_end %>.
+  You are parked on the <%= @facade.parking.side_of_street %> side of
+  <%= @facade.parking.street_name %> between
+  <%= @facade.parking.start_cross_street %> and
+  <%= @facade.parking.end_cross_street %>.
 <% else %>
-<h1>YOU CANNOT LEGALLY PARK HERE!</h1>
-<br />
-You are parked on the <%= @facade.parking_side %> side of
-<%= @facade.parking_street %> between
-<%= @facade.parking_start %> and
-<%= @facade.parking_end %>.
+  <h1>YOU CANNOT LEGALLY PARK HERE!</h1>
+  <br />
+  You are parked on the <%= @facade.parking.side_of_street %> side of
+  <%= @facade.parking.street_name %> between
+  <%= @facade.parking.start_cross_street %> and
+  <%= @facade.parking.end_cross_street %>.
 <% end %>
