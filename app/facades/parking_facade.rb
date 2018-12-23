@@ -4,6 +4,10 @@ class ParkingFacade
     @location = params[:location]
   end
   
+  def endpoint_id
+    "Curb Details"
+  end
+  
   def parking
     CurbInformation.new(parking_data)
   end

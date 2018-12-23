@@ -11,6 +11,6 @@ class ParkingController < ApplicationController
 
   private
   def curb_details
-    @curb_details ||= Parkings.new(params[:lat], params[:lon])
+    @curb_details ||= ParkingFacade.new(params[:lat], params[:lon])
   end
 end

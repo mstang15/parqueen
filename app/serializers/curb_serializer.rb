@@ -1,4 +1,6 @@
 class CurbSerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+
+  set_id :endpoint_id
+  attributes :parking
 end

@@ -35,7 +35,7 @@
           navigator.geolocation.getCurrentPosition(showPosition);}
         else {
           var loc = "0,0";
-          window.location.href=`/parking?location=${loc}`;
+          window.location.href=`/api/v1/parking?location=${loc}`;
         }
       }
       function showPosition(position) {
