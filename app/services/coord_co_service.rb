@@ -6,20 +6,10 @@ class CoordCoService
 	end
 
 	def get_parking
-		json_data = to_json("/v1/search/curbs/bylocation/time_rules")
-		json_data[:features].first
+		to_json("/v1/search/curbs/bylocation/time_rules")
 	end
 
 private
-
-  # def latitude
-  #   @location.split(",").first
-  # end
-
-  # def longitude
-  #   @location.split(",").last
-  # end
-
 	def to_json(url)
 		JSON.parse(conn.get(url).body, symbolize_names: true)
 	end
