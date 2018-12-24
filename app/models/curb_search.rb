@@ -8,6 +8,10 @@ class CurbSearch
   def endpoint_id
     "Curb Details"
   end
+
+  def message
+    "You are parked on the #{parking.side_of_street} side of #{parking.street_name} between #{parking.start_cross_street} and #{parking.end_cross_street}."
+  end
   
   def parking
     CurbInformation.new(parking_data)
