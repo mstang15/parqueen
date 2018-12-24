@@ -1,7 +1,8 @@
 class CoordService
 
-	def initialize(location)
-		@location = location
+	def initialize(latitude, longitude)
+		@lat = latitude
+		@lon = longitude
 	end
 
 	def get_parking
@@ -11,13 +12,13 @@ class CoordService
 
 private
 
-  def latitude
-    @location.split(",").first
-  end
+  # def latitude
+  #   @location.split(",").first
+  # end
 
-  def longitude
-    @location.split(",").last
-  end
+  # def longitude
+  #   @location.split(",").last
+  # end
 
 	def to_json(url)
 		JSON.parse(conn.get(url).body, symbolize_names: true)
@@ -26,8 +27,8 @@ private
 	def conn
 	  Faraday.new(url: "https://api.coord.co") do |faraday|
 	    faraday.params['access_key'] = ENV["COORD_TOKEN"]
-	    faraday.params['latitude'] = latitude
-	    faraday.params['longitude'] = longitude
+	    faraday.params['latitude'] = @lat
+			faraday.params['longitude'] = @lon
 	    faraday.params['radius_km'] = 0.001
 			faraday.adapter Faraday.default_adapter
 	  end
