@@ -20,6 +20,6 @@ private
   end
 
   def service
-    CoordService.new(@lat, @lon)
+    CoordCoService.new(@lat, @lon)
   end
 end
