@@ -11,7 +11,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <style>
-      #map {
+      #api-map {
         height: 50%;
         width: 50%;
         margin-left: auto;
@@ -29,40 +29,4 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
-    <script type="text/javascript">
-      function getLocation() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(showPosition);}
-        else {
-          var loc = "0,0";
-          window.location.href=`/parking?location=${loc}`;
-        }
-      }
-      function showPosition(position) {
-        var key = "<%= ENV["COORD_TOKEN"] %>";
-        var lat = position['coords']['latitude'];
-        var lon = position['coords']['longitude'];
-        var rad = 0.001;
-        var url = "https://api.coord.co/v1/search/curbs/bylocation/time_rules?access_key=" + key + "&latitude="+ lat + "&longitude=" + lon + "&radius_km=" + rad;
-        fetch(url).then(response => response.json()).then((response) => {this.printSpot(response)});}
-
-      function printSpot(response) {
-        if (response['no_curbs_reason']) {
-          document.getElementById("spot_info").innerHTML = (response['no_curbs_reason'])
-        }
-        else if (response['features'][0]['properties']['uses']['use'] === 'park') {
-          document.getElementById("spot_info").innerHTML = "You parked on the "
-          + (response['features'][0]['properties']['metadata']['side_of_street'])
-          + " side of "
-          + (response['features'][0]['properties']['metadata']['street_name'])
-          + " between "
-          + (response['features'][0]['properties']['metadata']['start_street_name'])
-          + " and "
-          + (response['features'][0]['properties']['metadata']['end_street_name'])}
-        else if (response){
-          document.getElementById("spot_info").innerHTML = 'YOU CANNOT LEGALLY PARK HERE!';
-        }
-      }
-
-    </script>
 </html>
