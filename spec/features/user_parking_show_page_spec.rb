@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'when a user creates a parking show page by button press' do
+xdescribe 'when a user creates a parking show page by button press' do
   it 'if parking is legal page displays location info' do
     params = {:location => "37.802756844713855,-122.40579354398695"}
     VCR.use_cassette("coords_parking_call") do
