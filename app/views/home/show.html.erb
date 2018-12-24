@@ -51,12 +51,21 @@
       src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_API_KEY']%>&callback=initMap">
     </script>
     <div id="map"></div>
+    <div id="api-map"></div>
     <br>
     <p align="center"><button  onclick="getLocation()">Park Here</button></p>
     <div class="container">
       <div class="card" style="width: 40vw;">
         <div class="card-body">
           <h5 class="card-title"><div id="spot_info"></h5>
+        </div>
+      </div>
+    </div>
+    <p align="center"><button  onclick="getCurbLocation()">API Park Here</button></p>
+    <div class="container">
+      <div class="card" style="width: 40vw;">
+        <div class="card-body">
+          <h5 class="card-title"><div id="curb_info"></h5>
         </div>
       </div>
     </div>
