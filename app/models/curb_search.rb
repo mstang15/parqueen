@@ -10,7 +10,11 @@ class CurbSearch
   end
 
   def message
-    "You are parked on the #{parking.side_of_street} side of #{parking.street_name} between #{parking.start_cross_street} and #{parking.end_cross_street}."
+    if parking.no_curbs
+      parking.no_curbs
+    else
+     "You are parked on the #{parking.side_of_street} side of #{parking.street_name} between #{parking.start_cross_street} and #{parking.end_cross_street}."
+    end
   end
   
   def parking
