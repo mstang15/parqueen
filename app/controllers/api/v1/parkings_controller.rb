@@ -1,4 +1,4 @@
-class ParkingController < ApplicationController
+class Api::V1::ParkingController < ApiController
   before_action :curb_details
 
   def show
