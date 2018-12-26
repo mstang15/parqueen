@@ -39,6 +39,8 @@ function showCurbPosition(position) {
 }
 
 function postCurbPosition(){
+  curbPositionReturn.data.attributes.parking['user_id'] = gon.current_user
+
   var url = '/api/v1/parking'
   fetch(url, {
     method: 'POST',
@@ -50,7 +52,6 @@ function postCurbPosition(){
   })
   .then((response) => response.json())
   .then((res) => {
-    debugger
     alert(res.message)
   })
 }
