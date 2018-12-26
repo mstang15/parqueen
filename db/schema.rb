@@ -10,15 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_26_201448) do
+ActiveRecord::Schema.define(version: 2018_12_26_204322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "parkings", force: :cascade do |t|
-    t.point "coord"
     t.string "curb_id"
-    t.time "time_out"
     t.boolean "legal"
     t.string "street_name"
     t.string "start_cross_street"
@@ -27,6 +25,8 @@ ActiveRecord::Schema.define(version: 2018_12_26_201448) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_parkings_on_user_id"
   end
 
