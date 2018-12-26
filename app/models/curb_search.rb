@@ -11,9 +11,11 @@ class CurbSearch
 
   def message
     if parking.no_curbs
-      parking.no_curbs
-    else
+      "Please select another location. #{parking.no_curbs}."
+    elsif parking.legal
      "You are parked on the #{parking.side_of_street} side of #{parking.street_name} between #{parking.start_cross_street} and #{parking.end_cross_street}."
+    else
+      "You cannot legally park here."
     end
   end
   
