@@ -24,11 +24,35 @@ function getCurbLocation() {
   }
 }
 
+ var curbPositionReturn;
+
 function showCurbPosition(position) {
   var lat = position['coords']['latitude'];
   var lon = position['coords']['longitude'];
-  var url = "/api/v1/parking?" + "latitude="+ lat + "&longitude=" + lon;
-  fetch(url).then(response => response.json()).then((response) => {this.printCurbDetails(response)});
+  var url = `/api/v1/parking?latitude=${lat}&longitude=${lon}`;
+  fetch(url)
+    .then(response => response.json())
+    .then((response) => {
+      curbPositionReturn = response
+      return this.printCurbDetails(response)
+    });
+}
+
+function postCurbPosition(){
+  var url = '/api/v1/parking'
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(curbPositionReturn)
+  })
+  .then((response) => response.json())
+  .then((res) => {
+    debugger
+    alert(res.message)
+  })
 }
 
 function printCurbDetails(response) {
