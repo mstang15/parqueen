@@ -15,6 +15,9 @@ class CurbInformation
       @no_curbs = data[:no_curbs_reason]
     else
       features = data[:features][0]
+      @curb_id = features[:properties][:metadata][:curb_id]
+      @latitude = features[:geometry][:coordinates][0][1]
+      @longitude = features[:geometry][:coordinates][0][0]
       @street_name = features[:properties][:metadata][:street_name]
       @start_cross_street = features[:properties][:metadata][:start_street_name]
       @end_cross_street = features[:properties][:metadata][:end_street_name]
