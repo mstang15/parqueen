@@ -5,7 +5,7 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="<%= logout_path %>">Log Out</a><br/>
-          <a class="dropdown-item" href="">Logged in as <%=@user.name%></a>
+          <a class="dropdown-item" href="">Logged in as <%= current_user.name %></a>
         </div>
       </div>
       <h1 align="center">ParQueen</h1>
