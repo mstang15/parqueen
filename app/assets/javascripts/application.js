@@ -24,7 +24,7 @@ function getCurbLocation() {
   }
 }
 
- var curbPositionReturn;
+var curbPositionReturn;
 
 function showCurbPosition(position) {
   var lat = position['coords']['latitude'];
