@@ -33,3 +33,4 @@
 
 # Ignore VCR cassettes
 /spec/cassettes
+/notes.rb
