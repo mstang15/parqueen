@@ -12,7 +12,7 @@ class Api::V1::ParkingController < ApiController
       if parking
         render json: { message: "You have already saved this location." }
       else
-        Parking.create(parking_params)
+        Parking.create_from_json(parking_params)
         render json: { message: "This location has been saved." }
       end
     end
@@ -24,7 +24,7 @@ class Api::V1::ParkingController < ApiController
   end
 
   def no_curbs
-    params[:data][:attributes][:no_curbs]
+    params[:data][:attributes][:parking][:no_curbs]
   end
 
   def curb_id
