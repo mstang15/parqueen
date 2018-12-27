@@ -101,6 +101,9 @@ GEM
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    js-routes (1.4.4)
+      railties (>= 3.2)
+      sprockets-rails
     json (2.1.0)
     jwt (2.1.0)
     launchy (2.4.3)
@@ -270,6 +273,7 @@ DEPENDENCIES
   figaro
   gon
   jbuilder (~> 2.5)
+  js-routes
   launchy
   listen (>= 3.0.5, < 3.2)
   newrelic_rpm

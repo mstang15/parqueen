@@ -4,6 +4,8 @@ class User < ApplicationRecord
   validates :uid, presence: true
   validates :name, presence: true
 
+  has_many :parkings
+
   def self.update_or_create(auth)
     user = User.find_by(uid: auth[:uid]) || User.new
     user.attributes = {

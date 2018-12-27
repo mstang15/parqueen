@@ -2,9 +2,7 @@ class CreateParkings < ActiveRecord::Migration[5.2]
   def change
     create_table   :parkings do |t|
       t.point      :coord
-      t.integer    :curb_id
       t.time       :time_out
-      t.boolean    :legal
       t.string     :street_name
       t.string     :start_cross_street
       t.string     :end_cross_street
