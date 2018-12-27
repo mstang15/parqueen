@@ -13,17 +13,29 @@
  *= require_tree .
  *= require_self
  */
+ #api-map {
+    height: 50%;
+    width: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
 .glyphicon {
     font-size: 5vh;
 }
 
 .card {
-    margin: 0 auto; /* Added */
-    float: none; /* Added */
-    margin-bottom: 10px; /* Added */
+    margin: 0 auto; 
+    float: none; 
+    margin-bottom: 10px;
 }
 
-#api-save-btn {
+#save-btn {
     display: none;
 }
