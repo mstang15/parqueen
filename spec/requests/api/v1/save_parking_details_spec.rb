@@ -67,5 +67,28 @@ describe 'POST request' do
 
       expect(returned_json[:message]).to eq("You have already saved this location.")
     end
+
+    it 'does not save unrecognized curb details to database and renders an unable to save message' do
+      curb_payload = {
+          "data": {
+              "id": "Curb Details",
+              "type": "curb",
+              "attributes": {
+                  "parking": {
+                      "no_curbs": "The location you supplied is not in a city we have curb data for. To see the list of cities we support, visit https://coord.co/locations"
+                  },
+                  "message": "Please select another location. The location you supplied is not in a city we have curb data for. To see the list of cities we support, visit https://coord.co/locations."
+              }
+          }
+      }
+
+      post '/api/v1/parking', params: curb_payload
+
+      expect(response.status).to eq(404)
+
+      returned_json = JSON.parse(response.body, symbolize_names: true)
+
+      expect(returned_json[:message]).to eq("No data exists for this location.  Unable to save.")
+    end
   end
 end
