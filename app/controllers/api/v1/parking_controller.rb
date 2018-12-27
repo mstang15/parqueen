@@ -6,11 +6,11 @@ class Api::V1::ParkingController < ApiController
 
   def create
     if no_curbs
-      render json: { message: "No data exists for this location.  Unable to save." }
+      render status: 404, json: { message: "No data exists for this location.  Unable to save."}
     else
       parking = Parking.find_by(curb_id: curb_id)
       if parking
-        render json: { message: "You have already saved this location." }
+        render status: 400, json: { message: "You have already saved this location."}
       else
         Parking.create_from_json(parking_params)
         render json: { message: "This location has been saved." }
