@@ -14,12 +14,16 @@
  *= require_self
  */
 
- .glyphicon {
-     font-size: 5vh;
- }
+.glyphicon {
+    font-size: 5vh;
+}
 
- .card {
-        margin: 0 auto; /* Added */
-        float: none; /* Added */
-        margin-bottom: 10px; /* Added */
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
+
+#api-save-btn {
+    display: none;
 }

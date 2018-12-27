@@ -1,7 +1,7 @@
-    <div class="container">
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <span class="glyphicon glyphicon-menu-hamburger"></span>
+    <div class="container-fluid">
+      <div class="dropdown m-3">
+        <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-bars"></i>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="<%= logout_path %>">Log Out</a><br/>
@@ -50,12 +50,18 @@
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_API_KEY']%>&callback=initMap">
     </script>
-    <div id="api-map"></div>
+    <div id="api-map" class='col'></div>
     <br>
-    <p align="center"><button  onclick="getCurbLocation()">API Park Here</button></p>
-    <p align="center"><button  onclick="postCurbPosition()">API Save This Location</button></p>
+    <div class='row'>
+      <div class='col-12 mb-3 text-center'>
+        <button id='park-here-btn' class='btn btn-primary col-6 col-md-3' onclick="getCurbLocation()">PARK HERE</button>
+      </div>
+      <div class='col-12 text-center'>
+        <button id='api-save-btn' class='btn btn-primary col-6 col-md-3' onclick="postCurbPosition()">SAVE LOCATION</button>
+      </div>
+    </div>
     <div class="container">
-      <div class="card" style="width: 40vw;">
+      <div class="card border-0" style="width: 40vw;">
         <div class="card-body">
           <h5 class="card-title"><div id="curb_info"></h5>
         </div>
