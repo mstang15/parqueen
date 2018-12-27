@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 describe Parking do
-  
+
   describe 'Validations' do
     it { should belong_to(:user) } 
   end
 
   describe 'Class methods' do
-    it 'can #create_from_json with recognizable coordinates' do
-      good_coords_json = {
+    it 'can #create_from_json' do
+      json_response = {
         "user_id": "MQ==",
         "curb_id": "c2Y6Mzk3OQ",
         "latitude": 37.80221017610328,
@@ -20,7 +20,7 @@ describe Parking do
         "legal": true
     }
 
-      parking = Parking.create_from_json(good_coords_json)
+      parking = Parking.create_from_json(json_response)
     
       expect(parking.user_id).to eq(1)
       expect(parking.curb_id).to eq("c2Y6Mzk3OQ")
